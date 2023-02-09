@@ -1,0 +1,83 @@
+body{
+    background-color: black;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.game-title{
+    text-align: center;
+    font-weight: bold;
+    font-size: 65px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+}
+
+.btn{
+    background:none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 15rem;
+    margin: 25px;
+
+    color: transparent;         /* this is to make text (or the emojis in this case) transparent so that we can give them a color. */
+    text-shadow: 0 0 0 white; /*in this case, the emojis were made transparent and I gave them a white color.Previously, their edges were black but that would be a problem since my background color is also black*/
+
+    transition: 100ms; /*this provides a way to control animation speed.*/
+}
+
+.btn:hover{
+    transform: scale(1.2); /* this transformation resizes an element*/
+}
+
+.restart{
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 50ms;
+    cursor: pointer;
+    margin-top: 0px;
+}
+
+.restart:hover{
+    transform: scale(1.1);
+}
+
+.score-board{
+    display: flex;
+    justify-content: center;
+}
+
+table, td {
+    border: 5px solid black;
+    border-color:white;
+    width: 50%;
+    height: auto;
+    font-size: 40px;
+  }
+
+td{
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+}
+
+tr{
+    height: 200px;
+}
+
+.result{
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+
+
+
