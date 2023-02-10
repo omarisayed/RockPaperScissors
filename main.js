@@ -83,24 +83,24 @@ function restartGame(){
 function game(playerChoice){    
     const computerChoice = getcomputerChoice();
 
-    switch(playerChoice + computerChoice) {    // ill first take care of all the cases when the player wins, then when player loses/ computer wins, then tie
-        case "rs":
-        case "pr":
-        case "sp":
-            win();
-            break;
-        case "rp":
-        case "ps":
-        case "sr":
-            lose();
-            break;
-        case "rr":
-        case "pp":
-        case "ss":
-            tie();
-            break;
+        switch(playerChoice + computerChoice) {    // ill first take care of all the cases when the player wins, then when player loses/ computer wins, then tie
+            case "rs":
+            case "pr":
+            case "sp":
+                win();
+                break;
+            case "rp":
+            case "ps":
+            case "sr":
+                lose();
+                break;
+            case "rr":
+            case "pp":
+            case "ss":
+                tie();
+                break;
 
-    }
+        }
 
 }
 
