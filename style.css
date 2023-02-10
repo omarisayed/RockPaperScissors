@@ -35,16 +35,17 @@ body{
     transform: scale(1.2); /* this transformation resizes an element*/
 }
 
-.restart{
+.again{
     text-align: center;
     font-size: 40px;
     font-weight: bold;
     transition: 50ms;
     cursor: pointer;
     margin-top: 0px;
+    visibility: hidden;
 }
 
-.restart:hover{
+.again:hover{
     transform: scale(1.1);
 }
 

@@ -1,9 +1,11 @@
 let playerScore = 0;
 let computerScore = 0;
+let rounds = 0;
+const all_buttons = document.querySelectorAll(".buttons")
 const rock_span = document.querySelector(".r");
 const paper_span = document.querySelector(".p");
 const scissors_span = document.querySelector(".s");
-const restart_p = document.querySelector(".restart");
+const playAgain_p = document.querySelector(".again");
 const scoreBoard_div = document.querySelector('.score-board');
 const playerScore_span = document.querySelector("#player-score");
 const computerScore_span = document.querySelector("#computer-score");
@@ -26,8 +28,8 @@ function main(){
         game('s');
     })
 
-    restart_p.addEventListener('click', function(){
-        restartGame();
+    playAgain_p.addEventListener('click', function(){
+        playAgain();
     })
 
 }
@@ -42,41 +44,41 @@ function getcomputerChoice(){
     return choices[randomNumber];
 }
 
-// when player wins
+// Game Over
 
-function win(){
-    playerScore++;
-    playerScore_span.textContent = playerScore;
-    computerScore_span.textContent = computerScore;
-    result_p.textContent = "Player wins!"
+function endGame(){
+    if (playerScore == 5){
+        result_p.textContent = "YOU HAVE WON 5 TIMES!"
+        playAgain_p.style.visibility = 'visible';
+        disableButtons();
+    }else if (computerScore == 5){
+        result_p.textContent = "THE COMPUTER HAS WON 5 TIMES!"
+        playAgain_p.style.visibility = 'visible';
+        disableButtons();
+    } 
 }
 
-// when player loses
+// Disable all the buttons 
 
-function lose(){
-    computerScore++;
-    computerScore_span.textContent = computerScore;
-    playerScore_span.textContent = playerScore;
-    result_p.textContent = "Computer wins!"
-    
-}
-
-// when there's a tie
-
-function tie(){
-    result_p.textContent = "It's a draw!"
-    
+function disableButtons(){
+    rock_span.disabled = true;
+    paper_span.disabled = true;
+    scissors_span.disabled = true;
 }
 
 // Restart the game
 
-function restartGame(){
+function playAgain(){
     playerScore = 0;
     computerScore = 0;
     playerScore_span.textContent = playerScore;
     computerScore_span.textContent = computerScore;
+    rock_span.disabled = false;
+    paper_span.disabled = false;
+    scissors_span.disabled = false;
+    playAgain_p.style.visibility = 'hidden';
+    result_p.textContent = "Let's Play!"
 }
-
 
 // Game logic is here:
 
@@ -87,20 +89,30 @@ function game(playerChoice){
         case "rs":
         case "pr":
         case "sp":
-            win();
+            rounds++;
+            playerScore++;
+            playerScore_span.textContent = playerScore;
+            computerScore_span.textContent = computerScore;
+            result_p.textContent = "Player wins!"
+            endGame();
             break;
         case "rp":
         case "ps":
         case "sr":
-            lose();
+            rounds++;
+            computerScore++;
+            computerScore_span.textContent = computerScore;
+            playerScore_span.textContent = playerScore;
+            result_p.textContent = "Computer wins!"
+            endGame();
             break;
         case "rr":
         case "pp":
         case "ss":
-            tie();
+            rounds++;
+            result_p.textContent = "It's a draw!"
             break;
 
     }
 
 }
-
